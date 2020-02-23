@@ -32,6 +32,15 @@ namespace datorium_snake_game_cs
             InitializeFood();
         }
 
+        private void AddSnakePixel()
+        {
+            Snake.Add(new SnakePixel());
+            Snake[Snake.Count - 1].Top = Snake[Snake.Count - 2].Top;
+            Snake[Snake.Count - 1].Left = Snake[Snake.Count - 2].Left;
+            this.Controls.Add(Snake[Snake.Count - 1]);
+            Snake[Snake.Count - 1].BringToFront();
+        }
+
         private int RandBetween(int a, int b)
         {
             return rand.Next(a, b + 1);
@@ -48,6 +57,7 @@ namespace datorium_snake_game_cs
             if (Snake[0].Bounds.IntersectsWith(FreshFood.Bounds))
             {
                 FoodRegenerate();
+                AddSnakePixel();
             }
         }
 
@@ -69,10 +79,19 @@ namespace datorium_snake_game_cs
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
+            MoveSnake();
+            SnakeFoodCollision();
+        }
+
+        private void MoveSnake()
+        {
+            for(int i = Snake.Count - 1; i > 0; i--)
+            {
+                Snake[i].Left = Snake[i - 1].Left;
+                Snake[i].Top = Snake[i - 1].Top;
+            }            
             Snake[0].Left += horizontalVelocity;
             Snake[0].Top += verticalVelocity;
-
-            SnakeFoodCollision();
         }
 
         private void InitializeSnake()
