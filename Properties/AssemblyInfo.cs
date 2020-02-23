@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("datorium-snake-game-cs")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Short tutorial for creating classical snake game")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Datorium")]
 [assembly: AssemblyProduct("datorium-snake-game-cs")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright © Riga International Tuition Centre 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
