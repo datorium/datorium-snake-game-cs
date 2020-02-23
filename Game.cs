@@ -58,7 +58,34 @@ namespace datorium_snake_game_cs
             {
                 FoodRegenerate();
                 AddSnakePixel();
+                if (GameTimer.Interval > 5)
+                    GameTimer.Interval -= 5;
             }
+        }
+
+        private void SnakeRectangleCollision()
+        {
+            if (Zone.Bounds.Contains(Snake[0].Bounds) == false)
+            {
+                GameOver();
+            }
+        }
+
+        private void SnakeItselfCollision()
+        {
+            for(int i = Snake.Count - 1; i > 2; i--)
+            {
+                if (Snake[0].Bounds.IntersectsWith(Snake[i].Bounds))
+                {
+                    GameOver();
+                }
+            }
+        }
+
+        private void GameOver()
+        {
+            GameTimer.Stop();
+            Snake[0].BackColor = Color.Red;
         }
 
         private void InitializeFood()
@@ -81,6 +108,8 @@ namespace datorium_snake_game_cs
         {
             MoveSnake();
             SnakeFoodCollision();
+            SnakeRectangleCollision();
+            SnakeItselfCollision();
         }
 
         private void MoveSnake()
