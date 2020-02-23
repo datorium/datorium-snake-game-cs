@@ -14,6 +14,8 @@ namespace datorium_snake_game_cs
     {
         private int verticalVelocity = 0;
         private int horizontalVelocity = 0;
+        private int tempHorizontalVelocity = 0;
+        private int tempVerticalVelocity = 0;
         private int snakeSpeed = 20;
 
         private Random rand = new Random();
@@ -86,6 +88,7 @@ namespace datorium_snake_game_cs
         {
             GameTimer.Stop();
             Snake[0].BackColor = Color.Red;
+            Snake[0].BringToFront();
         }
 
         private void InitializeFood()
@@ -106,15 +109,29 @@ namespace datorium_snake_game_cs
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            MoveSnake();
+            SnakeMove();
             SnakeFoodCollision();
             SnakeRectangleCollision();
             SnakeItselfCollision();
         }
 
-        private void MoveSnake()
+        private void SetDirection()
         {
-            for(int i = Snake.Count - 1; i > 0; i--)
+            if (Snake.Count > 1)
+            {
+                if (tempHorizontalVelocity == -horizontalVelocity || 
+                    tempVerticalVelocity == -verticalVelocity)
+                    return;
+            }
+            horizontalVelocity = tempHorizontalVelocity;
+            verticalVelocity = tempVerticalVelocity;
+        }
+
+        private void SnakeMove()
+        {
+            SetDirection();
+
+            for (int i = Snake.Count - 1; i > 0; i--)
             {
                 Snake[i].Left = Snake[i - 1].Left;
                 Snake[i].Top = Snake[i - 1].Top;
@@ -144,20 +161,20 @@ namespace datorium_snake_game_cs
             switch (e.KeyCode)
             {
                 case Keys.Right:
-                    verticalVelocity = 0;
-                    horizontalVelocity = snakeSpeed;
+                    tempVerticalVelocity = 0;
+                    tempHorizontalVelocity = snakeSpeed;
                     break;
                 case Keys.Down:
-                    verticalVelocity = snakeSpeed;
-                    horizontalVelocity = 0;
+                    tempVerticalVelocity = snakeSpeed;
+                    tempHorizontalVelocity = 0;
                     break;
                 case Keys.Left:
-                    verticalVelocity = 0;
-                    horizontalVelocity = -snakeSpeed;
+                    tempVerticalVelocity = 0;
+                    tempHorizontalVelocity = -snakeSpeed;
                     break;
                 case Keys.Up:
-                    verticalVelocity = -snakeSpeed;
-                    horizontalVelocity = 0;
+                    tempVerticalVelocity = -snakeSpeed;
+                    tempHorizontalVelocity = 0;
                     break;
             }
         }
