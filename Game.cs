@@ -18,6 +18,7 @@ namespace datorium_snake_game_cs
         
         private GameZone Zone;
         private List<SnakePixel> Snake = new List<SnakePixel>();
+        private Timer GameTimer;
 
         public Game()
         {
@@ -25,6 +26,21 @@ namespace datorium_snake_game_cs
             InitializeGameZone();
             InitializeGame();
             InitializeSnake();
+            InitializeGameTimer();
+        }
+
+        private void InitializeGameTimer()
+        {
+            GameTimer = new Timer();
+            GameTimer.Interval = 400;
+            GameTimer.Tick += new EventHandler(GameTimer_Tick);
+            GameTimer.Start();
+        }
+
+        private void GameTimer_Tick(object sender, EventArgs e)
+        {
+            Snake[0].Left += horizontalVelocity;
+            Snake[0].Top += verticalVelocity;
         }
 
         private void InitializeSnake()
