@@ -71,6 +71,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -84,6 +85,84 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_body_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_body_90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_body_180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_body_270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_corner_ccw_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_corner_ccw_90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_corner_ccw_180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_corner_ccw_270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_corner_cw_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_corner_cw_90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_corner_cw_180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_corner_cw_270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_food_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_food_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_head_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_head_90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_head_180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_head_270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_tail_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_tail_90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_tail_180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_tail_270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile020.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile023.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
