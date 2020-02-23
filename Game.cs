@@ -19,6 +19,7 @@ namespace datorium_snake_game_cs
         private GameZone Zone;
         private List<SnakePixel> Snake = new List<SnakePixel>();
         private Timer GameTimer;
+        private Food FreshFood;
 
         public Game()
         {
@@ -27,6 +28,26 @@ namespace datorium_snake_game_cs
             InitializeGame();
             InitializeSnake();
             InitializeGameTimer();
+            InitializeFood();
+        }
+
+        private void FoodRegenerate()
+        {
+
+        }
+
+        private void SnakeFoodCollision()
+        {
+
+        }
+
+        private void InitializeFood()
+        {
+            FreshFood = new Food();
+            FreshFood.Left = 20*12;
+            FreshFood.Top = 20 * 8;
+            this.Controls.Add(FreshFood);
+            FreshFood.BringToFront();
         }
 
         private void InitializeGameTimer()
