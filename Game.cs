@@ -153,6 +153,7 @@ namespace datorium_snake_game_cs
         {
             this.Width = 600;
             this.Height = 600;
+            this.BackColor = Color.DarkGray;
             this.KeyDown += new KeyEventHandler(Game_KeyDown);
         }
 

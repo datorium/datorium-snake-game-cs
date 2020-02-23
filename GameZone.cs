@@ -17,7 +17,7 @@ namespace datorium_snake_game_cs
 
         private void InitializeGameZone()
         {
-            this.BackColor = Color.LightCoral;
+            this.BackColor = Color.Beige;
             this.Width = 400;
             this.Height = 400;
         }

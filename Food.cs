@@ -17,7 +17,7 @@ namespace datorium_snake_game_cs
 
         private void InitializeFood()
         {
-            this.BackColor = Color.Red;
+            this.BackColor = Color.Lime;
             this.Height = 20;
             this.Width = 20;
         }
