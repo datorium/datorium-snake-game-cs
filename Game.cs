@@ -12,6 +12,9 @@ namespace datorium_snake_game_cs
 {
     public partial class Game : Form
     {
+        private const int InitialInterval = 300;
+        private const int IntervalDecriment = 10;
+        
         private int verticalVelocity = 0;
         private int horizontalVelocity = 0;
         private int tempHorizontalVelocity = 0;
@@ -52,6 +55,17 @@ namespace datorium_snake_game_cs
         {
             FreshFood.Left = 100 + 20 * RandBetween(0, 19);
             FreshFood.Top = 100 + 20 * RandBetween(0, 19);
+            if (SnakeContainsFood()) FoodRegenerate();
+        }
+
+        private bool SnakeContainsFood()
+        {
+            foreach(SnakePixel snakePixel in Snake)
+            {
+                if (snakePixel.Bounds.IntersectsWith(FreshFood.Bounds))
+                    return true;
+            }
+            return false;
         }
 
         private void SnakeFoodCollision()
@@ -60,8 +74,8 @@ namespace datorium_snake_game_cs
             {
                 FoodRegenerate();
                 AddSnakePixel();
-                if (GameTimer.Interval > 5)
-                    GameTimer.Interval -= 5;
+                if (GameTimer.Interval > IntervalDecriment)
+                    GameTimer.Interval -= IntervalDecriment;
             }
         }
 
@@ -102,7 +116,7 @@ namespace datorium_snake_game_cs
         private void InitializeGameTimer()
         {
             GameTimer = new Timer();
-            GameTimer.Interval = 400;
+            GameTimer.Interval = InitialInterval;
             GameTimer.Tick += new EventHandler(GameTimer_Tick);
             GameTimer.Start();
         }
