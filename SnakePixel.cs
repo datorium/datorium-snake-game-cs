@@ -8,18 +8,18 @@ using System.Drawing;
 
 namespace datorium_snake_game_cs
 {
-    class GameZone: PictureBox
+    class SnakePixel: PictureBox
     {
-        public GameZone()
+        public SnakePixel()
         {
-            InitializeGameZone();
+            InitializeSnakePixel();
         }
 
-        private void InitializeGameZone()
+        private void InitializeSnakePixel()
         {
-            this.BackColor = Color.LightCoral;
-            this.Width = 400;
-            this.Height = 400;
+            this.BackColor = Color.Blue;
+            this.Width = 20;
+            this.Height = 20;
         }
     }
 }
